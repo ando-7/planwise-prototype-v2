@@ -1,0 +1,89 @@
+{
+  "source": "code-archive (planwise-prototype-final.zip, Next.js 16 app generated with v0)",
+  "capabilities": [
+    {
+      "capability": "code: pages /, /login, /register, /dashboard",
+      "source": "app/*/page.tsx (Next.js App Router)",
+      "outcome": "migrate to TanStack Start file routes; / redirects to /login",
+      "status": "verified",
+      "next_action": "none"
+    },
+    {
+      "capability": "design: theme tokens, Geist font, status colors, icons",
+      "source": "app/globals.css, app/layout.tsx, public/icon*",
+      "outcome": "migrate into src/styles.css and root head",
+      "status": "verified",
+      "next_action": "none"
+    },
+    {
+      "capability": "task management (create/edit/delete tasks, subtasks, progress rules, date limits)",
+      "source": "components/dashboard/*, lib/tasks.ts",
+      "outcome": "migrate as-is; in-memory state seeded with sampleTasks, same as source",
+      "status": "verified",
+      "next_action": "none"
+    },
+    {
+      "capability": "schema / database",
+      "source": "none - source has no database; tasks live in browser memory",
+      "outcome": "not applicable",
+      "status": "verified",
+      "next_action": "none (optional: persist tasks in Lovable Cloud if user wants)"
+    },
+    {
+      "capability": "records",
+      "source": "none - only hardcoded sampleTasks in lib/tasks.ts",
+      "outcome": "sample data carried over in code",
+      "status": "verified",
+      "next_action": "none"
+    },
+    {
+      "capability": "auth identities / authorization",
+      "source": "components/auth/auth-form.tsx - client-side validation only, then navigates to /dashboard; no accounts exist",
+      "outcome": "preserve prototype behavior (form validation + redirect); no users to migrate",
+      "status": "verified",
+      "next_action": "optional: real accounts via Lovable Cloud if the user wants"
+    },
+    {
+      "capability": "analytics",
+      "source": "@vercel/analytics (Vercel-hosting-only)",
+      "outcome": "replace with Lovable built-in visitor analytics on the published site; no code needed",
+      "status": "verified",
+      "next_action": "none"
+    },
+    {
+      "capability": "uploaded file bytes / storage",
+      "source": "none",
+      "outcome": "not applicable",
+      "status": "verified",
+      "next_action": "none"
+    },
+    {
+      "capability": "external providers, public endpoints, webhooks, schedules",
+      "source": "none detected",
+      "outcome": "not applicable",
+      "status": "verified",
+      "next_action": "none"
+    },
+    {
+      "capability": "secrets",
+      "source": "only NODE_ENV referenced",
+      "outcome": "none required",
+      "status": "verified",
+      "next_action": "none"
+    },
+    {
+      "capability": "cutover",
+      "source": "previous hosting (likely Vercel)",
+      "outcome": "publish from Lovable when ready",
+      "status": "pending",
+      "next_action": "user publishes"
+    },
+    {
+      "capability": "verification",
+      "source": "-",
+      "outcome": "typecheck clean, unit tests pass, browser: / -> /login, login/register validation, register -> dashboard, task create, subtask add with deadline limit, toggle, delete, sign-out",
+      "status": "verified",
+      "next_action": "none"
+    }
+  ]
+}
